@@ -1,0 +1,234 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\services\\signalorchestratorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:services\\signalorchestratorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\services\\signaltemplateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:services\\signaltemplateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\services\\signalmodelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:services\\signalmodelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\services\\ollamaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:services\\ollamaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\services\\groqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:services\\groqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\services\\filegeneratorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:services\\filegeneratorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\models\\signalrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:models\\signalrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\models\\signaldefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:models\\signaldefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\models\\parsedsignaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:models\\parsedsignaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\models\\devicetypeoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:models\\devicetypeoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\models\\defaulttemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:models\\defaulttemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|c:\\poc\\object based engineering\\hack summit 2025\\coengineer\\signalintelligencesystem\\models\\chatsessionstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BC4B4A-48CF-8835-2F94-AFAC96C34E07}|SignalIntelligenceSystem.csproj|solutionrelative:models\\chatsessionstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SignalOrchestratorService.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\SignalOrchestratorService.cs",
+              "RelativeDocumentMoniker": "Services\\SignalOrchestratorService.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\SignalOrchestratorService.cs",
+              "RelativeToolTip": "Services\\SignalOrchestratorService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:46:56.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SignalTemplateService.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\SignalTemplateService.cs",
+              "RelativeDocumentMoniker": "Services\\SignalTemplateService.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\SignalTemplateService.cs",
+              "RelativeToolTip": "Services\\SignalTemplateService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:46:55.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GroqService.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\GroqService.cs",
+              "RelativeDocumentMoniker": "Services\\GroqService.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\GroqService.cs",
+              "RelativeToolTip": "Services\\GroqService.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAUwAIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:35:29.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAxwBoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:34:34.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SignalRequest.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\SignalRequest.cs",
+              "RelativeDocumentMoniker": "Models\\SignalRequest.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\SignalRequest.cs",
+              "RelativeToolTip": "Models\\SignalRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:33:48.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SignalDefinition.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\SignalDefinition.cs",
+              "RelativeDocumentMoniker": "Models\\SignalDefinition.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\SignalDefinition.cs",
+              "RelativeToolTip": "Models\\SignalDefinition.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:33:29.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FileGeneratorService.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\FileGeneratorService.cs",
+              "RelativeDocumentMoniker": "Services\\FileGeneratorService.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\FileGeneratorService.cs",
+              "RelativeToolTip": "Services\\FileGeneratorService.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAAAFMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:34:52.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OllamaService.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\OllamaService.cs",
+              "RelativeDocumentMoniker": "Services\\OllamaService.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\OllamaService.cs",
+              "RelativeToolTip": "Services\\OllamaService.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAzwEsAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T17:02:30.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SignalModelService.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\SignalModelService.cs",
+              "RelativeDocumentMoniker": "Services\\SignalModelService.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Services\\SignalModelService.cs",
+              "RelativeToolTip": "Services\\SignalModelService.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAADwvzcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T16:49:01.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ParsedSignalData.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\ParsedSignalData.cs",
+              "RelativeDocumentMoniker": "Models\\ParsedSignalData.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\ParsedSignalData.cs",
+              "RelativeToolTip": "Models\\ParsedSignalData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:33:01.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DeviceTypeOptions.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\DeviceTypeOptions.cs",
+              "RelativeDocumentMoniker": "Models\\DeviceTypeOptions.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\DeviceTypeOptions.cs",
+              "RelativeToolTip": "Models\\DeviceTypeOptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:31:29.535Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DefaultTemplate.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\DefaultTemplate.cs",
+              "RelativeDocumentMoniker": "Models\\DefaultTemplate.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\DefaultTemplate.cs",
+              "RelativeToolTip": "Models\\DefaultTemplate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:31:03.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ChatSessionState.cs",
+              "DocumentMoniker": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\ChatSessionState.cs",
+              "RelativeDocumentMoniker": "Models\\ChatSessionState.cs",
+              "ToolTip": "C:\\POC\\Object based Engineering\\Hack Summit 2025\\CoEngineer\\SignalIntelligenceSystem\\Models\\ChatSessionState.cs",
+              "RelativeToolTip": "Models\\ChatSessionState.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAswBAAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:30:38.482Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

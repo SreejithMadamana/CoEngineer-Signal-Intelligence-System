@@ -1,0 +1,43 @@
+﻿using OllamaSharp;
+using OllamaSharp.Models;
+
+using System.Text;
+using System.Threading.Tasks;
+
+public class OllamaService : ILLMService
+{
+    private readonly OllamaApiClient _client;
+
+    public OllamaService()
+    {
+        _client = new OllamaApiClient("http://localhost:11434");
+    }
+
+    public async Task<string> GetLLMResponseAsync(string prompt)
+    {
+        var request = new GenerateRequest
+        {
+            Model = "llama3.2", // or any model you pulled
+            Prompt = prompt,
+            Options = new RequestOptions // FIX: Use RequestOptions instead of GenerateOptions
+            {
+                Temperature = (float?)0.2
+                // Example: Stream is not a property of RequestOptions, so set it on GenerateRequest
+            },
+            Stream = true
+            // FIX: Set Stream property directly on GenerateRequest
+        };
+
+        var sb = new StringBuilder();
+
+        await foreach (var chunk in _client.GenerateAsync(request))
+        {
+            if (chunk?.Response != null)
+            {
+                sb.Append(chunk.Response);
+            }
+        }
+
+        return sb.ToString();
+    }
+}

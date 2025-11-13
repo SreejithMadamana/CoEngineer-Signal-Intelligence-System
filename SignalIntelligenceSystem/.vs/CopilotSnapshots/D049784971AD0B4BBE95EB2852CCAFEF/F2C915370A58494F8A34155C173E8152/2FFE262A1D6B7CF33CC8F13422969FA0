@@ -1,0 +1,27 @@
+﻿public class ChatSessionState
+{
+    public string? CurrentStep { get; set; }
+    public string? DeviceType { get; set; }
+    public int? DeviceCount { get; set; }
+    public string? Protocol { get; set; }
+    public bool IsComplete { get; set; }
+
+    // New fields for dynamic attribute prompting
+    public int CurrentDeviceIndex { get; set; } = 0; // Which device/tag is being processed
+    public int CurrentAttributeIndex { get; set; } = 0; // Which attribute is being prompted
+
+    // Store attribute values for each device/tag
+    public List<Dictionary<string, string>> DeviceAttributeValues { get; set; } = new();
+
+    // Optionally, store the attribute schema for the selected protocol
+    public List<MappingAttribute>? ProtocolAttributes { get; set; }
+
+    // Add these fields for chat flow
+    public string? ControlMode { get; set; }
+    public string? SensorType { get; set; }
+    public List<string>? FeedbackSignals { get; set; } = new();
+
+    // Add for conversational chat
+    public List<LLMMessage> Messages { get; set; } = new();
+    public SignalRequest? SignalRequest { get; set; }
+}

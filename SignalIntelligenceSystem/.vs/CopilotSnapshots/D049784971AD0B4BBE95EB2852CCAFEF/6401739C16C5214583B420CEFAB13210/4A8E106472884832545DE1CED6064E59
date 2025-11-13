@@ -1,0 +1,240 @@
+﻿using Newtonsoft.Json;
+
+using Microsoft.AspNetCore.Mvc;
+
+using System.Collections.Concurrent;
+using System.Threading.Tasks;
+
+[ApiController]
+[Route("api/[controller]")]
+public class ChatController : ControllerBase
+{
+    private static ConcurrentDictionary<string, ChatSessionState> _sessions = new();
+    private static ConcurrentDictionary<string, string> _results = new();
+    private readonly SignalOrchestratorService _signalOrchestratorService;
+    private readonly IPromptBuilderService _promptBuilderService;
+
+    public ChatController(
+        SignalOrchestratorService signalOrchestratorService,
+        IPromptBuilderService promptBuilderService)
+    {
+        _signalOrchestratorService = signalOrchestratorService;
+        _promptBuilderService = promptBuilderService;
+    }
+
+    [HttpPost("message")]
+    public IActionResult PostMessage([FromQuery] string sessionId, [FromBody] string userMessage)
+    {
+        var session = _sessions.GetOrAdd(sessionId, _ => new ChatSessionState());
+
+        string botResponse = HandleMessage(session, userMessage, sessionId);
+        var (prompt, options) = GetPromptAndOptions(session);
+
+        _sessions[sessionId] = session;
+
+        return Ok(new { response = botResponse, prompt, options, session });
+    }
+
+    [HttpGet("result")]
+    public IActionResult GetResult([FromQuery] string sessionId)
+    {
+        if (_results.TryGetValue(sessionId, out var result))
+        {
+            return Ok(new { ready = true, result });
+        }
+        return Ok(new { ready = false, result = "" });
+    }
+
+    private (string prompt, List<string> options) GetPromptAndOptions(ChatSessionState session)
+    {
+        switch (session.CurrentStep)
+        {
+            case "greet":
+                return ("Hello! Would you like to generate a signal list?", new List<string> { "Yes", "No" });
+            case "deviceType":
+                return ("Select device type:", new List<string> { "Motor", "Sensor", "PLC" });
+            case "controlMethod":
+                // Example: get control methods for selected device type
+                var controlMethods = GetControlMethodsForDevice(session.DeviceType);
+                return ("Select control method:", controlMethods);
+            case "feedbackSignals":
+                var feedbackSignals = GetFeedbackSignalsForDevice(session.DeviceType);
+                return ("Select feedback signals:", feedbackSignals);
+            case "sensorType":
+                var sensorTypes = GetSensorTypesForDevice(session.DeviceType);
+                return ("Select sensor type:", sensorTypes);
+            case "deviceCount":
+                return ($"How many devices of type '{session.DeviceType}'?", new List<string> { "1", "2", "3", "4", "5" });
+            case "protocol":
+                var protocols = GetprotocolsForDevice(session.DeviceType);
+                return ("Select protocol:", protocols);
+            default:
+                return ("", new List<string>());
+        }
+    }
+
+    private string HandleMessage(ChatSessionState session, string userMessage, string sessionId)
+    {
+        if (string.IsNullOrEmpty(session.CurrentStep))
+        {
+            session.CurrentStep = "greet";
+            return "Hello! Would you like to generate a signal list?";
+        }
+
+        switch (session.CurrentStep)
+        {
+            case "greet":
+                if (userMessage.Trim().ToLower() is "no" or "n")
+                {
+                    session.CurrentStep = "end";
+                    return "Okay, let me know if you need anything else!";
+                }
+                session.CurrentStep = "deviceType";
+                return "What is the device type? (e.g., Motor, Sensor, PLC)";
+
+            case "deviceType":
+                session.DeviceType = userMessage;
+                var template = _signalOrchestratorService._signalTemplateService.GetDeviceTemplate(session.DeviceType);
+                if (template?.ControlMethods?.Count > 0)
+                {
+                    session.CurrentStep = "controlMethod";
+                    return "Select control method:";
+                }
+                else if (template?.SensorTypes?.Count > 0)
+                {
+                    session.CurrentStep = "sensorType";
+                    return "Select sensor type:";
+                }
+                else if (template?.FeedbackSignals?.Count > 0)
+                {
+                    session.CurrentStep = "feedbackSignals";
+                    return "Select feedback signals:";
+                }
+                session.CurrentStep = "deviceCount";
+                return $"How many devices of type '{session.DeviceType}'?";
+
+            case "controlMethod":
+                session.ControlMode = userMessage;
+                // After control method, check for feedback signals or sensor types
+                var templateAfterControl = _signalOrchestratorService._signalTemplateService.GetDeviceTemplate(session.DeviceType);
+                if (templateAfterControl?.FeedbackSignals?.Count > 0)
+                {
+                    session.CurrentStep = "feedbackSignals";
+                    return "Select feedback signals:";
+                }
+                else if (templateAfterControl?.SensorTypes?.Count > 0)
+                {
+                    session.CurrentStep = "sensorType";
+                    return "Select sensor type:";
+                }
+                session.CurrentStep = "deviceCount";
+                return $"How many devices of type '{session.DeviceType}'?";
+
+            case "sensorType":
+                session.SensorType = userMessage;
+                // After sensor type, check for feedback signals
+                var templateAfterSensor = _signalOrchestratorService._signalTemplateService.GetDeviceTemplate(session.DeviceType);
+                if (templateAfterSensor?.FeedbackSignals?.Count > 0)
+                {
+                    session.CurrentStep = "feedbackSignals";
+                    return "Select feedback signals:";
+                }
+                session.CurrentStep = "deviceCount";
+                return $"How many devices of type '{session.DeviceType}'?";
+
+            case "feedbackSignals":
+                if (session.FeedbackSignals == null)
+                    session.FeedbackSignals = new List<string>();
+                session.FeedbackSignals.Add(userMessage);
+                // Optionally allow multiple selections, or proceed to next step
+                // For now, proceed to device count after one selection
+                session.CurrentStep = "deviceCount";
+                return $"How many devices of type '{session.DeviceType}'?";
+
+            case "deviceCount":
+                if (int.TryParse(userMessage, out int count))
+                {
+                    session.DeviceCount = count;
+                    session.CurrentStep = "protocol";
+                    return "Which protocol do you want to use? (DNP3, OPCUA)";
+                }
+                return "Please enter a valid number for device count.";
+
+            case "protocol":
+                session.Protocol = userMessage;
+                session.CurrentStep = "complete";
+                // Start signal list generation in the background
+                Task.Run(async () =>
+                {
+                    var signalRequest = new SignalRequest
+                    {
+                        DeviceType = session.DeviceType ?? "",
+                        DeviceCount = session.DeviceCount ?? 1,
+                        Protocol = session.Protocol ?? "",
+                        ControlMode = session.ControlMode ?? "",
+                        SignalCount = session.DeviceCount ?? 1,
+                        PromptOverride = "",
+                        FeedbackSignals = session.FeedbackSignals ?? new List<string>()
+                    };
+
+                    var (success, error, response) = await _signalOrchestratorService.GenerateArtifactsAsync(signalRequest);
+
+                    if (success && response != null)
+                    {
+                        _results[sessionId] = JsonConvert.SerializeObject(new
+                        {
+                            json = response.JsonContent,
+                            csv = response.CsvContent
+                        });
+                    }
+                    else
+                    {
+                        _results[sessionId] = JsonConvert.SerializeObject(new
+                        {
+                            json = $"Error: {error}",
+                            csv = ""
+                        });
+                    }
+                });
+                return $"Thank you! Generating signal list for {session.DeviceCount} {session.DeviceType}(s) using {session.Protocol} protocol. Please wait..";
+        }
+
+        if (session.IsComplete)
+        {
+            return "Signal list generation is in progress. Please wait...";
+        }
+
+        return "Let's continue.";
+    }
+
+    private List<string> GetControlMethodsForDevice(string deviceType)
+    {
+        var template = _signalOrchestratorService._signalTemplateService.GetDeviceTemplate(deviceType);
+        if (template?.ControlMethods != null)
+            return template.ControlMethods.Keys.ToList();
+        return new List<string>();
+    }
+
+    private List<string> GetFeedbackSignalsForDevice(string deviceType)
+    {
+        var template = _signalOrchestratorService._signalTemplateService.GetDeviceTemplate(deviceType);
+        if (template?.FeedbackSignals != null)
+            return template.FeedbackSignals.Keys.ToList();
+        return new List<string>();
+    }
+
+    private List<string> GetSensorTypesForDevice(string deviceType)
+    {
+        var template = _signalOrchestratorService._signalTemplateService.GetDeviceTemplate(deviceType);
+        if (template?.SensorTypes != null)
+            return template.SensorTypes.Keys.ToList();
+        return new List<string>();
+    }
+    private List<string> GetprotocolsForDevice(string deviceType)
+    {
+        var template = _signalOrchestratorService._signalTemplateService.GetDeviceTemplate(deviceType);
+        if (template?.ProtocolDefaults != null)
+            return template.ProtocolDefaults.Keys.ToList();
+        return new List<string>();
+    }
+}

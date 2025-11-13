@@ -1,0 +1,1082 @@
+{
+  "RequiredAttributes": {
+    "IEC104": {
+
+      "SIGNAL NAME": {
+        "type": "string",
+        "description": "Name of the signal. e.g. MOTOR1_RUN_FB",
+        "example": "MOTOR1_RUN_FB"
+      },
+      "REFERENCE TAG": {
+        "type": "string",
+        "description": "Name of the associated tag. e.g. MOTOR1",
+        "example": "MOTOR1"
+      },
+      "SIGNAL DESCRIPTION": {
+        "type": "string",
+        "description": "Description of Signal",
+        "example": "Motor running feedback"
+      },
+      "SIGNAL TYPE": {
+        "type": "enum",
+        "description": "Signal Type. e.g. M_ME_NC_1/C_SE_NC_1/M_ME_NB_1",
+        "allowed": [ "M_ME_NC_1", "C_SE_NC_1", "M_ME_NB_1" ],
+        "example": "M_ME_NC_1"
+      },
+      "ZERO VALUE": {
+        "type": "integer",
+        "description": "Instrument zero value. Allowed Values - any integer e.g. 0",
+        "example": 0
+      },
+      "SPAN VALUE": {
+        "type": "integer",
+        "description": "Instrument span value. Allowed Values - any integer e.g. 1000",
+        "example": 1000
+      },
+      "SCALE VALUE 0": {
+        "type": "integer",
+        "description": "Scale value 0. Allowed Values - any integer e.g. 0",
+        "example": 0
+      },
+      "SCALE VALUE 100": {
+        "type": "integer",
+        "description": "Scale value 100. Allowed Values - any integer e.g. 100",
+        "example": 100
+      },
+      "SP LOW LIMIT": {
+        "type": "integer",
+        "description": "Set point low limit. Allowed Values - any integer e.g. 1",
+        "example": 1
+      },
+      "SP HIGH LIMIT": {
+        "type": "integer",
+        "description": "Set point high limit. Allowed Values - any integer e.g. 100",
+        "example": 100
+      },
+      "DECIMAL PLACE": {
+        "type": "enum",
+        "description": "Number of decimal places. Allowed Values - 0,1,2,3,4,5,6",
+        "allowed": [ 0, 1, 2, 3, 4, 5, 6 ],
+        "example": 2
+      },
+      "ENGINEERING UNIT": {
+        "type": "string",
+        "description": "Engineering unit description e.g. - %, g/cm3",
+        "example": "%"
+      },
+      "REMOTE ALARM": {
+        "type": "enum",
+        "description": "Remote alarm processing. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "ALARM PRIORITY": {
+        "type": "integer",
+        "description": "Alarm priority. Allowed Values - 0 to 31",
+        "example": 10,
+        "min": 0,
+        "max": 31
+      },
+
+
+      "ALARM MESSAGE": {
+        "type": "string",
+        "description": "Alarm message. e.g. - Alarm",
+        "example": "Alarm"
+      },
+      "Descriptor for state 0": {
+        "type": "string",
+        "description": "Allowed Value: EMPTY STRING",
+        "example": ""
+      },
+
+      "HIGH INST ALARM LIMIT": {
+        "type": "integer",
+        "description": "High Instrument Alarm Limit. Allowed Values - integer value, not greater than SPAN",
+        "example": 900,
+        "constraints": {
+          "maxRelation": "SPAN"
+        }
+      },
+      "HIGH ALARM 3 LIMIT": {
+        "type": "integer",
+        "description": "High 3 Alarm Limit. Allowed Values - integer value, H3ALARM < SPAN",
+        "example": 850,
+        "constraints": {
+          "lessThan": "SPAN"
+        }
+      },
+      "HIGH ALARM 2 LIMIT": {
+        "type": "integer",
+        "description": "High 2 Alarm Limit. Allowed Values - integer value, H2ALARM < H3ALARM < SPAN",
+        "example": 800,
+        "constraints": {
+          "lessThan": [ "H3ALARM", "SPAN" ]
+        }
+      },
+      "HIGH ALARM LIMIT": {
+        "type": "integer",
+        "description": "High Alarm Limit. Allowed Values - integer value, HALARM < H2ALARM < H3ALARM < SPAN",
+        "example": 750,
+        "constraints": {
+          "lessThan": [ "H2ALARM", "H3ALARM", "SPAN" ]
+        }
+      },
+      "LOW ALARM LIMIT": {
+        "type": "integer",
+        "description": "Low Alarm Limit. Allowed Values - integer value, LALARM > L2ALARM > L3ALARM > VAL0",
+        "example": 200,
+        "constraints": {
+          "greaterThan": [ "L2ALARM", "L3ALARM", "VAL0" ]
+        }
+      },
+      "LOW ALARM 2 LIMIT": {
+        "type": "integer",
+        "description": "Low Alarm 2 Limit",
+        "example": 150
+      },
+      "LOW ALARM 3 LIMIT": {
+        "type": "integer",
+        "description": "Low 3 Alarm Limit. Allowed Values - integer value, L3ALARM > VAL0",
+        "example": 100,
+        "constraints": {
+          "greaterThan": "VAL0"
+        }
+      },
+      "LOW INST ALARM LIMIT": {
+        "type": "integer",
+        "description": "Low Instrument Alarm Limit. Allowed Values - any integer e.g. 100",
+        "example": 100
+      },
+      "HIGH INST ALARM HYSTERESIS": {
+        "type": "integer",
+        "description": "High Instrument Alarm Hysteresis. Allowed Values - any integer e.g. 2",
+        "example": 2
+      },
+      "HIGH ALARM 3 HYSTERESIS": {
+        "type": "integer",
+        "description": "High 3 Alarm Hysteresis. Allowed Values - any integer e.g. 2",
+        "example": 2
+      },
+      "HIGH ALARM 2 HYSTERESIS": {
+        "type": "integer",
+        "description": "High 2 Alarm Hysteresis. Allowed Values - any integer e.g. 2",
+        "example": 2
+      },
+
+      "HIGH ALARM HYSTERESIS": {
+        "type": "integer",
+        "description": "High Alarm Hysteresis. Allowed Values - any integer e.g. 2",
+        "example": 2
+      },
+      "LOW ALARM HYSTERESIS": {
+        "type": "integer",
+        "description": "Low Alarm Hysteresis. Allowed Values - any integer e.g. 2",
+        "example": 2
+      },
+      "LOW ALARM 2 HYSTERESIS": {
+        "type": "integer",
+        "description": "Low 2 Alarm Hysteresis. Allowed Values - any integer e.g. 2",
+        "example": 2
+      },
+      "LOW ALARM 3 HYSTERESIS": {
+        "type": "integer",
+        "description": "Low 3 Alarm Hysteresis. Allowed Values - any integer e.g. 2",
+        "example": 2
+      },
+      "LOW INST ALARM HYSTERESIS": {
+        "type": "integer",
+        "description": "Low Instrument Alarm Hysteresis. Allowed Values - any integer e.g. 2",
+        "example": 2
+      },
+      "State 0 is alarm": {
+        "type": "string",
+        "description": " Allowed Values -EMPTY STRING",
+
+        "example": ""
+      },
+      "State 1 is alarm": {
+        "type": "string",
+        "description": "Allowed Values -EMPTY STRING",
+
+        "example": ""
+      },
+      "PLAYBACK ARCHIVE": {
+        "type": "enum",
+        "description": "Playback archive. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "HISTORY SHORT TERM": {
+        "type": "enum",
+        "description": "History Short Term Keep. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "HISTORY LONG TERM": {
+        "type": "enum",
+        "description": "History Long Term Keep. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "PLAYBACK COMPRESSED": {
+        "type": "integer",
+        "description": "Playback compressed. Allowed Values - any integer e.g. 0",
+        "example": 0
+      },
+      "HISTORY LIFE TIME": {
+        "type": "integer",
+        "description": "History life time. Allowed Values - any integer e.g. 10000",
+        "example": 10000
+      },
+      "IS CONTROLLABLE": {
+        "type": "enum",
+        "description": "Is controllable. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "COMMAND TIME OUT": {
+        "type": "integer",
+        "description": "Command time out. Allowed Values - any integer e.g. 2",
+        "example": 2
+      },
+      "COMMAND TYPE": {
+        "type": "integer",
+        "description": "Command type. Allowed Values - any integer e.g. 1",
+        "example": 1
+      },
+
+      "ACTION": {
+        "type": "enum",
+        "description": "Action on record. Allowed Values - D/Delete",
+        "allowed": [ "ADD", "DELETE", "UPDATE", "RENAME" ],
+        "example": "ADD"
+      },
+      "OLD SIGNAL NAME": {
+        "type": "string",
+        "description": "Old signal name in case of rename. Allowed value is empty string",
+        "example": ""
+      },
+      "ATOM 1 NAME": {
+        "type": "string",
+        "description": "Atom 1 name. Allowed Values - any string",
+        "example": "ATOM1_SIGNAL"
+      },
+      "PLANT TAG NAME": {
+        "type": "string",
+        "description": "Plant tag name. Allowed Values - any string",
+        "example": "PLANT_TAG_01"
+      },
+      "STATE 2 IS ALARM": {
+        "type": "enum",
+        "description": "State 2 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 3 IS ALARM": {
+        "type": "enum",
+        "description": "State 3 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 4 IS ALARM": {
+        "type": "enum",
+        "description": "State 4 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 5 IS ALARM": {
+        "type": "enum",
+        "description": "State 5 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 6 IS ALARM": {
+        "type": "enum",
+        "description": "State 6 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 7 IS ALARM": {
+        "type": "enum",
+        "description": "State 7 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 8 IS ALARM": {
+        "type": "enum",
+        "description": "State 8 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 9 IS ALARM": {
+        "type": "enum",
+        "description": "State 9 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 10 IS ALARM": {
+        "type": "enum",
+        "description": "State 10 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 11 IS ALARM": {
+        "type": "enum",
+        "description": "State 11 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 12 IS ALARM": {
+        "type": "enum",
+        "description": "State 12 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 13 IS ALARM": {
+        "type": "enum",
+        "description": "State 13 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 14 IS ALARM": {
+        "type": "enum",
+        "description": "State 14 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 15 IS ALARM": {
+        "type": "enum",
+        "description": "State 15 is alarm. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 16 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 17 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 18 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 19 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 20 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+
+      "STATE 21 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 22 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 23 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 24 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 25 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 26 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 27 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 28 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 29 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "STATE 30 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "STATE 31 IS ALARM": {
+        "type": "enum",
+        "description": "Alarm bit mask. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "EVENT ITEM": {
+        "type": "enum",
+        "description": "Event item. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "Event Item on": {
+        "type": "enum",
+        "description": "EventItemOn is yes for Active Transition - ON. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "Event Item off": {
+        "type": "enum",
+        "description": "EventItemOff is yes for Active Transition - OFF. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "No"
+      },
+      "COMMAND FEEDBACK ITEM": {
+        "type": "string",
+        "description": "Command feedback item. Allowed Values - any string",
+        "example": "FEEDBACK_SIGNAL"
+      },
+      "FEEDBACK AFTER COMMAND": {
+        "type": "enum",
+        "description": "Feedback after command. Allowed Values - Yes/No",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "DESCRIPTOR FOR STATE 1": {
+        "type": "string",
+        "description": "Allowed Value: EMPTY STRING",
+        "example": ""
+      },
+      "DESCRIPTOR FOR STATE 2": {
+        "type": "string",
+        "description": "Descriptor for state 2. Allowed Values - any string",
+        "example": "STATE_2_ON"
+      },
+      "DESCRIPTOR FOR STATE 3": {
+        "type": "string",
+        "description": "Descriptor for state 3. Allowed Values - any string",
+        "example": "STATE_3_OFF"
+      },
+      "DESCRIPTOR FOR STATE 4": {
+        "type": "string",
+        "description": "Descriptor for state 4. Allowed Values - any string",
+        "example": "STATE_4_ERROR"
+      },
+      "DESCRIPTOR FOR STATE 5": {
+        "type": "string",
+        "description": "Descriptor for state 5. Allowed Values - any string",
+        "example": "STATE_5_WARNING"
+      },
+      "DESCRIPTOR FOR STATE 6": {
+        "type": "string",
+        "description": "Descriptor for state 6. Allowed Values - any string",
+        "example": "STATE_6_NORMAL"
+      },
+      "DESCRIPTOR FOR STATE 7": {
+        "type": "string",
+        "description": "Descriptor for state 7. Allowed Values - any string",
+        "example": "STATE_7_UNKNOWN"
+      },
+      "DESCRIPTOR FOR STATE 8": {
+        "type": "string",
+        "description": "Descriptor for state 8. Allowed Values - any string",
+        "example": "STATE_8_IDLE"
+      },
+      "DESCRIPTOR FOR STATE 9": {
+        "type": "string",
+        "description": "Descriptor for state 9. Allowed Values - any string",
+        "example": "STATE_9_RUNNING"
+      },
+      "DESCRIPTOR FOR STATE 10": {
+        "type": "string",
+        "description": "Descriptor for state 10. Allowed Values - any string",
+        "example": "STATE_10_FAIL"
+      },
+      "DESCRIPTOR FOR STATE 11": {
+        "type": "string",
+        "description": "Descriptor for state 11. Allowed Values - any string",
+        "example": "STATE_11_MAINT"
+      },
+      "DESCRIPTOR FOR STATE 12": {
+        "type": "string",
+        "description": "Descriptor for state 12. Allowed Values - any string",
+        "example": "STATE_12_ALERT"
+      },
+      "DESCRIPTOR FOR STATE 13": {
+        "type": "string",
+        "description": "Descriptor for state 13. Allowed Values - any string",
+        "example": "STATE_13_TEST"
+      },
+      "DESCRIPTOR FOR STATE 14": {
+        "type": "string",
+        "description": "Descriptor for state 14. Allowed Values - any string",
+        "example": "STATE_14_READY"
+      },
+      "DESCRIPTOR FOR STATE 15": {
+        "type": "string",
+        "description": "Descriptor for state 15. Allowed Values - any string",
+        "example": "STATE_15_SHUTDOWN"
+      },
+
+      "DEVICE NAME": {
+        "type": "string",
+        "description": "Device Property, Computer Name - e.g. AC700-PC",
+        "example": "AC700-PC"
+      },
+      "PLANT AREA": {
+        "type": "string",
+        "description": "Device Property, Plant Area - e.g. Area1",
+        "example": "Area1"
+      },
+      "DEVICE TYPE": {
+        "type": "string",
+        "description": "Device Property, Alloed Value is EMPTY string",
+        "example": ""
+      },
+      "PORT NAME": {
+        "type": "string",
+        "description": "Device Property, Port Name. Allowed Values - any string",
+        "example": "COM1"
+      },
+      "Is Multi Device Driver": {
+        "type": "string",
+        "description": "Device Property, Is Multi Device Driver. Allowed values -NO",
+        "allowed": "NO",
+        "example": "NO"
+      },
+      "MASTER SLAVE": {
+        "type": "enum",
+        "description": "Device Property, Master slave. Allowed Values - Yes(Master)/No(Slave)",
+        "allowed": [ "Yes", "No" ],
+        "example": "Yes"
+      },
+      "BUS ADDRESS": {
+        "type": "string",
+        "description": "Device Property, Address of the main node. Allowed Values - IPAddress e.g. 192.1.1.1",
+        "example": "192.1.1.1"
+      },
+      "ASDU ADDRESS": {
+        "type": "integer",
+        "description": "ASDU Address. Allowed Values - any integer e.g. 2",
+        "example": 2
+      },
+      "IOA (INFORMATION OBJECT ADDRESS)": {
+        "type": "integer",
+        "description": "IOA (Information Object Address) - any integer e.g. 3",
+        "example": 3
+      },
+      "IEC104 SCAN CLASS": {
+        "type": "integer",
+        "description": "Scan Class. Allowed Values - any integer e.g. 4",
+        "example": 4
+      },
+      "Device event id": {
+        "type": "integer",
+        "description": "Device event id. Allowed Values - any integer e.g. 4",
+        "example": 5
+      },
+      "Cmd Qualifier": {
+        "type": "string",
+        "description": "Cmd Qualifier. Allowed Values - EMPTY string",
+        "example": ""
+      },
+      "Timeout (wait select)": {
+        "type": "integer",
+        "description": "Timeout (wait select). Allowed Values - any integer e.g. 1000",
+        "example": 1000
+      },
+      "Timeout (wait confirm)": {
+        "type": "integer",
+        "description": "Timeout (wait select). Allowed Values - any integer e.g. 1000",
+        "example": 1000
+      },
+      "Timeout (wait terminate)": {
+        "type": "integer",
+        "description": "Timeout (wait select). Allowed Values - any integer e.g. 1000",
+        "example": 1000
+      }
+    },
+    "DNP3": {
+      "SIGNAL NAME": {
+        "type": "string",
+        "description": "Name of the signal. e.g. MOTOR1_RUN_FB",
+        "example": "MOTOR1_RUN_FB"
+      },
+      "REFERENCE TAG": {
+        "type": "string",
+        "description": "Name of the associated tag. e.g. MOTOR1",
+        "example": "MOTOR1"
+      },
+      "SIGNAL DESCRIPTION": {
+        "type": "string",
+        "description": "Description of Signal",
+        "example": "Motor running feedback"
+      },
+      "SIGNAL TYPE": {
+        "type": "enum",
+        "description": "Signal Type. e.g. Binary Input/Analog Input/Counter/Input Status/Output Status/Binary Output/Analog Output/Control Relay Output Block",
+        "allowed": [ "Binary Input", "Analog Input", "Counter", "Input Status", "Output Status", "Binary Output", "Analog Output", "Control Relay Output Block" ],
+        "example": "Binary Input"
+      },
+      "ADDRESS": {
+        "type": "integer",
+        "description": "DNP3 Address. Allowed Values - any integer e.g. 1",
+        "example": 1
+      },
+      "DEVICE NAME": {
+        "type": "string",
+        "description": "Device Property, Computer Name - e.g. AC700-PC",
+        "example": "AC700-PC"
+      },
+      "PLANT AREA": {
+        "type": "string",
+        "description": "Device Property, Plant Area - e.g. Area1",
+        "example": "Area1"
+      }
+
+    },
+    "MODBUS": {
+      "SIGNAL NAME": {
+        "type": "string",
+        "description": "Name of the signal. e.g. MOTOR1_RUN_FB",
+        "example": "MOTOR1_RUN_FB"
+      },
+      "REFERENCE TAG": {
+        "type": "string",
+        "description": "Name of the associated tag. e.g. MOTOR1",
+        "example": "MOTOR1"
+      },
+      "SIGNAL DESCRIPTION": {
+        "type": "string",
+        "description": "Description of Signal",
+        "example": "Motor running feedback"
+      },
+      "SIGNAL TYPE": {
+        "type": "enum",
+        "description": "Signal Type. e.g. Binary Input/Analog Input/Counter/Input Status/Output Status/Binary Output/Analog Output/Control Relay Output Block",
+        "allowed": [ "Binary Input", "Analog Input", "Counter", "Input Status", "Output Status", "Binary Output", "Analog Output", "Control Relay Output Block" ],
+        "example": "Binary Input"
+      },
+      "ADDRESS": {
+        "type": "integer",
+        "description": "DNP3 Address. Allowed Values - any integer e.g. 1",
+        "example": 1
+      },
+      "DEVICE NAME": {
+        "type": "string",
+        "description": "Device Property, Computer Name - e.g. AC700-PC",
+        "example": "AC700-PC"
+      },
+      "PLANT AREA": {
+        "type": "string",
+        "description": "Device Property, Plant Area - e.g. Area1",
+        "example": "Area1"
+      }
+
+    },
+    "OPCUA": {
+      "object": {
+        "type": "object",
+        "description": "Signal object metadata.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier (GUID) for the OPCUA object.",
+            "example": "f19a99c9-1d6f-4e9f-a8f3-f28cfaba2305"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the OPCUA variable or signal.",
+            "example": "Var1"
+          },
+          "path": {
+            "type": "array",
+            "description": "Hierarchy path for the object.",
+            "example": []
+          }
+        }
+      },
+      "extends": {
+        "type": "array",
+        "description": "Extension type information.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "ID of the base type.",
+              "example": "00000000-0000-0000-0000-000000000000"
+            },
+            "path": {
+              "type": "array",
+              "description": "Hierarchy path for the base type.",
+              "example": []
+            },
+            "name": {
+              "type": "string",
+              "description": "Name of the base signal type.",
+              "example": "AnalogInSignalType"
+            },
+            "library": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Library name.",
+                  "example": "SignalCommonLibrary"
+                },
+                "majorVersion": {
+                  "type": "integer",
+                  "description": "Library major version.",
+                  "example": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "structureElements": {
+        "type": "array",
+        "description": "Structure elements for the signal.",
+        "example": []
+      },
+      "models": {
+        "type": "array",
+        "description": "Signal models.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "modelName": {
+              "type": "object",
+              "properties": {
+                "modelBaseName": {
+                  "type": "string",
+                  "description": "Base name of the model.",
+                  "example": "Signal"
+                },
+                "modelSuffix": {
+                  "type": "string",
+                  "description": "Suffix for the model name.",
+                  "example": ""
+                }
+              }
+            },
+            "modelBody": {
+              "type": "object",
+              "properties": {
+                "propertySettings": {
+                  "type": "array",
+                  "description": "Property settings.",
+                  "example": []
+                },
+                "actualChildren": {
+                  "type": "array",
+                  "description": "Actual children.",
+                  "example": []
+                },
+                "actualReferences": {
+                  "type": "array",
+                  "description": "Actual references.",
+                  "example": []
+                },
+                "configSettings": {
+                  "type": "array",
+                  "description": "Configuration settings for the signal.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "Config name."
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Config value."
+                      }
+                    }
+                  },
+                  "example": [
+                    {
+                      "name": "DataType",
+                      "value": "Float"
+                    },
+                    {
+                      "name": "LowEuRange",
+                      "value": "0.0"
+                    },
+                    {
+                      "name": "HighEuRange",
+                      "value": "100.0"
+                    },
+                    {
+                      "name": "UnitId",
+                      "value": "0"
+                    },
+                    {
+                      "name": "Fraction",
+                      "value": "1"
+                    },
+                    {
+                      "name": "SSPValue",
+                      "value": ""
+                    },
+                    {
+                      "name": "UseSSPValue",
+                      "value": "False"
+                    }
+                  ]
+                }
+              }
+            },
+            "isDraft": {
+              "type": "boolean",
+              "description": "Is draft.",
+              "example": false
+            },
+            "statusIndication": {
+              "type": "integer",
+              "description": "Status indication.",
+              "example": 0
+            }
+          }
+        }
+      },
+      "modelTypes": {
+        "type": "array",
+        "description": "Model types.",
+        "example": []
+      },
+      "metaDetails": {
+        "type": [ "object", "null" ],
+        "description": "Meta details.",
+        "example": null
+      },
+      "isDraft": {
+        "type": "boolean",
+        "description": "Is draft.",
+        "example": false
+      },
+      "statusIndication": {
+        "type": "integer",
+        "description": "Status indication.",
+        "example": 0
+      }
+    }
+  },
+    "MOTOR": {
+      "Default": {
+        "Description": "Generic motor device",
+        "BaseSignals": [
+          {
+            "SIG_NAME": "RUN_FB",
+            "SIG_DESC": "Motor running feedback",
+            "SIG_TYPE": "DI"
+          }
+        ]
+      },
+      "ControlMethods": {
+        "VFD": [
+          {
+            "SIG_NAME": "START_CMD",
+            "SIG_DESC": "Start command for VFD motor",
+            "SIG_TYPE": "DO"
+          }
+        ]
+      },
+      "FeedbackSignals": {
+        "Temperature": {
+          "SIG_NAME": "TEMP",
+          "SIG_DESC": "Motor temperature feedback",
+          "SIG_TYPE": "AI"
+        }
+
+      },
+      "ProtocolDefaults": {
+        "DNP3": {
+          "PROTO": "DNP3",
+          "VAL0": 0,
+          "SPAN": 100,
+          "SCA_VAL_0": 0,
+          "SCA_VL_100": 100,
+          "SP_VAL0": 0,
+          "SP_VAL100": 100
+        },
+        "Modbus": {
+          "PROTO": "Modbus",
+          "ADDR_BASE": 40000,
+          "VAL0": 0,
+          "SPAN": 100,
+          "SCA_VAL_0": 0,
+          "SCA_VL_100": 100
+        },
+        "OPCUA": {
+          "PROTO": "OPCUA",
+          "DATATYPE": "Float",
+          "VAL0": 0,
+          "SPAN": 100
+        },
+        "IEC104": {
+          "PROTO": "IEC104",
+          "VAL0": 0,
+          "SPAN": 100
+        }
+
+      }
+    },
+
+    "SENSOR": {
+      "Default": {
+        "Description": "Generic process sensor",
+        "BaseSignals": [
+          {
+            "SIG_NAME": "VALUE",
+            "SIG_DESC": "Measured process value",
+            "SIG_TYPE": "AI"
+          },
+          {
+            "SIG_NAME": "STATUS",
+            "SIG_DESC": "Sensor operational status",
+            "SIG_TYPE": "DI"
+          }
+        ]
+      },
+      "SensorTypes": {
+        "Pressure": [
+          {
+            "SIG_NAME": "PRESSURE",
+            "SIG_DESC": "Pressure measurement signal",
+            "SIG_TYPE": "AI"
+          }
+        ],
+        "Temperature": [
+          {
+            "SIG_NAME": "TEMP",
+            "SIG_DESC": "Temperature measurement signal",
+            "SIG_TYPE": "AI"
+          }
+        ],
+        "Flow": [
+          {
+            "SIG_NAME": "FLOW",
+            "SIG_DESC": "Flow rate measurement signal",
+            "SIG_TYPE": "AI"
+          }
+        ],
+        "Level": [
+          {
+            "SIG_NAME": "LEVEL",
+            "SIG_DESC": "Level measurement signal",
+            "SIG_TYPE": "AI"
+          }
+        ]
+      },
+      "ProtocolDefaults": {
+        "DNP3": {
+          "PROTO": "DNP3",
+          "VAL0": 0,
+          "SPAN": 1000,
+          "SCA_VAL_0": 0,
+          "SCA_VL_100": 1000
+        },
+        "MODBUS": {
+          "PROTO": "MODBUS",
+          "ADDR_BASE": 30000,
+          "VAL0": 0,
+          "SPAN": 1000
+        },
+        "OPCUA": {
+          "PROTO": "OPCUA",
+          "DATATYPE": "Float",
+          "VAL0": 0,
+          "SPAN": 1000
+        }
+      }
+    },
+
+    "PLC": {
+      "Default": {
+        "Description": "Programmable logic controller",
+        "BaseSignals": [
+          {
+            "SIG_NAME": "HEARTBEAT",
+            "SIG_DESC": "PLC alive status signal",
+            "SIG_TYPE": "DI"
+          },
+          {
+            "SIG_NAME": "COMMS_STATUS",
+            "SIG_DESC": "PLC communication health",
+            "SIG_TYPE": "DI"
+          },
+          {
+            "SIG_NAME": "ALARM",
+            "SIG_DESC": "PLC internal fault alarm",
+            "SIG_TYPE": "DI"
+          }
+        ]
+      },
+      "ControlSignals": {
+        "System": [
+          {
+            "SIG_NAME": "ENABLE_CMD",
+            "SIG_DESC": "Enable command for PLC",
+            "SIG_TYPE": "DO"
+          },
+          {
+            "SIG_NAME": "RESET_CMD",
+            "SIG_DESC": "Reset command for PLC",
+            "SIG_TYPE": "DO"
+          }
+        ]
+      },
+      "ProtocolDefaults": {
+        "DNP3": {
+          "PROTO": "DNP3",
+          "VAL0": 0,
+          "SPAN": 1
+        },
+        "MODBUS": {
+          "PROTO": "Modbus",
+          "ADDR_BASE": 10000
+        },
+        "OPCUA": {
+          "PROTO": "OPCUA",
+          "DATATYPE": "Boolean"
+        }
+      }
+    }
+  }
